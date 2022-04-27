@@ -21,7 +21,7 @@ library(sjPlot)
 
 ## Diferențele pe domenii/subdomenii
 
-Există diferențe semnificative între scorurile obținute de elevii români, în funcție de domeniile și subdomeniile de conținut și/sau abilitățile cognitive la matematică? Dacă da, pe ce domenii se obțin scorurile medii cele mai mici?
+*Există diferențe semnificative între scorurile obținute de elevii români, în funcție de domeniile și subdomeniile de conținut și/sau abilitățile cognitive la matematică? Dacă da, pe ce domenii se obțin scorurile medii cele mai mici?*
 
 ### Domeniile de conținut
 
@@ -134,7 +134,7 @@ gt_tbl %>%
 
 ## Mediul de proveniență
 
-Exista o diferenta semnificativa a scorurilor la matematica in functie de mediul de provenienta al elevului? In prezenta altor variabile de control, mediul de provenienta are sau isi pastreaza un efect ridicat? In cazul in care efectul mediului de provenienta e mare, se poate face o analiza mai detaliata a scorurilor elevilor din rural si urban mic (inclusiv pe domenii, subdomenii si abilitati cognitive) si a factorilor explicativi?
+*Exista o diferenta semnificativa a scorurilor la matematica in functie de mediul de provenienta al elevului? In prezenta altor variabile de control, mediul de provenienta are sau isi pastreaza un efect ridicat? In cazul in care efectul mediului de provenienta e mare, se poate face o analiza mai detaliata a scorurilor elevilor din rural si urban mic (inclusiv pe domenii, subdomenii si abilitati cognitive) si a factorilor explicativi?*
 
 Da, diferențele sunt notabile. De exemplu, în figura de mai jos, după ce controlăm pentru o serie de factori (dar cel mai important ramane resursele financiare de care dispune familia) probabiliatea de a gasi un elev performant (peste 600 de puncte) in zonele rurale este de doar de câteva procente. Invers, un elev foarte bun va fi gasit in 70% din cazuri in categoriile combinate *urban+oras mediu*.
 
@@ -158,7 +158,7 @@ plot(ce, plot = FALSE)[[2]] +
 
 ```
 
-Alftel spus, 
+Alftel spus,
 
 ```{r}
 plot_provenienta  <- readRDS("Date/big.rds")
@@ -174,9 +174,9 @@ plot_grid  <- readRDS("Date/plot_grid.rds")
 plot_grid
 ```
 
-## Model mai larg 
+## Model mai larg
 
-Ce factori/cumul de factori au efect important asupra scorului obținut de elevii români la matematică? Ne interesează mai ales factori privind predarea (tot ce e disponibil), profesorii de matematică (nivelul de formare profesională, vechimea, auto-eficacitatea etc.) respectiv elevii (mediul de proveniență -- rural-urban mic-urban mare, nivelul de autonomie, percepții privind profesor/predare și orice ai descoperit relevant).
+*Ce factori/cumul de factori au efect important asupra scorului obținut de elevii români la matematică? Ne interesează mai ales factori privind predarea (tot ce e disponibil), profesorii de matematică (nivelul de formare profesională, vechimea, auto-eficacitatea etc.) respectiv elevii (mediul de proveniență -- rural-urban mic-urban mare, nivelul de autonomie, percepții privind profesor/predare și orice ai descoperit relevant).*
 
 Modelul construit arată în general că variabilele cele mai importante ramân în continuare autoeficitatea sau cele legate de contextul familial (i.e., Statutul socioeconomic). Variabilele de nivel superior (legate de profesor, sau contextul scolar) raman cu un efect redus sau nesemnificativ.
 
@@ -194,10 +194,9 @@ plot_model(m1, show.values = TRUE, value.offset = .3, type = "std")+see::theme_r
 
 ```
 
-
 ## Context european
 
-Există o diferență semnificativă între scorul mediu obținut la matematică de elevii de clasa a IV-a respectiv a VIII-a? Dacă da, care este mai mic și cât de mic e față de media europeană? (daca exista date)
+*Există o diferență semnificativă între scorul mediu obținut la matematică de elevii de clasa a IV-a respectiv a VIII-a? Dacă da, care este mai mic și cât de mic e față de media europeană? (daca exista date)*
 
 [Raportul de țară pentru România](https://unibuc.ro/wp-content/uploads/2021/06/TIMSS-Raport-de-tara-2021-05-07.pdf) (p.8): În perioada 1995-2003, România a obținut scoruri la matematică în intervalul 472-475 puncte, urmând ca în anii 2007 și 2011 scorul să scadă la 461 (2007) și 458 (2011). În 2019, România a înregistrat o ușoară creștere ajungând la 479 puncte, fiind plasată în continuare sub media internațională TIMSS (500).
 
@@ -207,7 +206,7 @@ Scorul mediu obținut de elevii români la matematică (479) este foarte aproape
 
 ## Literație
 
-In general ne preocupa si daca problemele de literatie sunt un factor explicativ important pentru nivelurile scazute de numeratie (daca exista date sau acces la date care sa urmareasca ambele domenii, gen PISA)
+*In general ne preocupa si daca problemele de literatie sunt un factor explicativ important pentru nivelurile scazute de numeratie (daca exista date sau acces la date care sa urmareasca ambele domenii, gen PISA)*
 
 ```{r}
 
