@@ -17,6 +17,8 @@ library(see)
 library(gt)
 library(MetBrewer)
 library(sjPlot)
+library(cowplot)
+library(lmerTest)
 ```
 
 ## Diferențele pe domenii/subdomenii
@@ -166,7 +168,7 @@ plot_provenienta
 ```
 
 ```{r}
-#| fig-height: 15
+#| fig-height: 16
 
 plot_grid  <- readRDS("Date/plot_grid.rds")
 plot_grid
@@ -176,19 +178,24 @@ plot_grid
 
 *Ce factori/cumul de factori au efect important asupra scorului obținut de elevii români la matematică? Ne interesează mai ales factori privind predarea (tot ce e disponibil), profesorii de matematică (nivelul de formare profesională, vechimea, auto-eficacitatea etc.) respectiv elevii (mediul de proveniență -- rural-urban mic-urban mare, nivelul de autonomie, percepții privind profesor/predare și orice ai descoperit relevant).*
 
-Modelul construit arată în general că variabilele cele mai importante rămân în continuare autoeficacitatea sau cele legate de contextul familial (i.e., statutul socioeconomic). Variabilele de nivel superior (legate de profesor, sau contextul școlar) rămân cu un efect redus sau nesemnificativ.
+Modelul construit arată în general  aceleași efecte pe care le observăm și in alte țări: variabilele cele mai importante rămân în continuare autoeficacitatea sau cele legate de contextul familial (i.e., statutul socioeconomic) vezi Modelul 1 de mai jos. Variabilele de nivel superior (legate de profesor, sau contextul școlar) rămân cu un efect redus sau nesemnificativ, vezi Modelul 2. 
 
 ```{r}
+
 m0  <- readRDS("Date/model0.rds")
 m1  <- readRDS("Date/model1.rds")
 
-tab_model(m0, m1, show.ci = FALSE)
+tab_model(m0, m1, 
+          show.ci = FALSE,
+          dv.labels = c("Model 1", "Model 2"))
 ```
+
+Reprezentarea grafică a celor doua modele se află mai jos. Cu roșu sunt reprezentate efectele considerate "negative", cu excepția Limitări care reprezintă percepțiile unei predări limitată de nevoile elevilor (raportată de profesor) - care a fost codată invers și deci interpretarea se face în sens opus, adică o creștere in această percepție este asociată cu o scădere a performanței școlare.
 
 ```{r}
 #| fig.cap = "SSE = Statut socioeconomic al elevului. Claritate = Percepția clarității (în ochii elevului) cu care se predă matematica. Apreciere = Aprecierea (de către elev a) matematicii. Afect = Afect pozitiv (la elev) fata de matematica. Satisfacție = Satisfacția (la profesor) cu locul de munca, Accent = Accentul pus de școală pe performanța școlară (perceput de profesor). Educație = Nivelul de educație (al profesorului). Limitări = Predare limitată de nevoile elevilor (raportată de profesor). Dezvoltare = Ore de dezvoltare profesională în ultimul an (parcurse de profesor)."
 
-plot_model(m1, show.values = TRUE, value.offset = .3, type = "std") + see::theme_radar()
+plot_model(m1, show.values = TRUE, value.offset = .3, type = "std", axis.lim = c(-.1, .1)) + see::theme_radar()
 
 ```
 
@@ -207,3 +214,17 @@ Scorul mediu obținut de elevii români la matematică (479) este foarte aproape
 ## Literație
 
 *In general ne preocupă și dacă problemele de literație sunt un factor explicativ important pentru nivelurile scăzute de numerație (dacă există date sau acces la date care să urmărească ambele domenii, gen PISA)*
+
+Din câte știm, nu există date publice privind această tema în mod specific. Există în schimb o serie de articole publicate.
+
+De exemplu, majoritatea cercetărilor din acest domeniu tind să se concentreze pe compararea a patru grupuri de elevi: elevi cu dificultăți la matematică și lectură, elevi care au doar dificultăți la matematică, elevi care au doar dificultăți la lectură și elevi care au rezultate normale ^[Rutherford-Becker, K.J., Vanderwood, M.L. Evaluation of the Relationship Between Literacy and Mathematics Skills As Assessed By Curriculum-Based Measures. Contemp School Psychol 14, 23–34 (2009). https://doi.org/10.1007/BF03340948]
+
+În general, elevii cu dificultăți în ambele domenii academice tind să obțină rezultate mai slabe la evaluările la matematică decât elevii cu dificultăți doar într-un singur domeniu. Acest lucru este ceea ce ne-am aștepta.
+
+Elevii cu dificultăți la matematică și lectură se caracterizează prin slăbiciuni atât în rezolvarea problemelor, cât și în stăpânirea faptelor aritmetice. Mai important, deficitele atât la matematică, cât și la citire încă din clasa a doua sunt omniprezente și stabile pe parcursul claselor a doua și a treia, chiar și atunci când IQ-ul este menținut constant. De asemenea, se pare că dificultățile de calcul la matematică pot contribui mai mult la problemele de învățare a rezolvării problemelor de matematică decât dificultățile de înțelegere a cititului.
+
+Cauzele sunt ca de obicei multifactoriale. Studiile GWAS (Genome-Wide Association Studies) arată că există componentă genetică substanțială în ceea ce privește abilitățile copiilor la citire și matematică și se estimează că aproximativ jumătate din corelația observată în aceste trăsături se datorează unor efecte genetice comune ^[Davis, O., Band, G., Pirinen, M. et al. The correlation between reading and mathematics ability at age twelve has a substantial genetic component. Nat Commun 5, 4204 (2014). https://doi.org/10.1038/ncomms5204.].
+
+Evident, genele nu explică toate variația naturală pe care fenomenul o arată. Alte cerectări ne indică faptul că statutul socio-economic este un factor predictiv pentru abilitățile timpurii de limbaj, alfabetizare și pentru abilitățile de calcul nesimbolic ^[Bonifacci, P., Compiani, D., Affranti, A., & Peri, B. (2021). Home literacy and numeracy interact and mediate the relationship between socio-economic status and early linguistic and numeracy skills in preschoolers. Frontiers in Psychology, 12.]
+
+
