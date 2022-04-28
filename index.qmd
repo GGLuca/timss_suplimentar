@@ -80,7 +80,7 @@ gt_tbl %>%
 
 ```
 
-Există diferențe notabile între domeniile de conținut cu perechea algebră - probabilități fiind poate cea mai evidentă, ceva mai mult de 30 de puncte.
+Există diferențe notabile între domeniile de conținut cu perechea *algebră - probabilități* fiind poate cea mai evidentă, ceva mai mult de 30 de puncte.
 
 ### Domeniul cognitiv
 
@@ -158,13 +158,12 @@ plot(ce, plot = FALSE)[[2]] +
 
 ```
 
-Altfel spus, zonele rurale, de oraș mic/sat și suburban sunt net dezavantajate față de zonele urbane formate din orașe mari sau orașe medii. Figurile de mai jos ilustrează această situație pentru Matematică, atât pentru tot setul de date cât și pe toate domeniile – imaginea este identică pentru toate aceste cazuri.
+Altfel spus, zonele rurale, de oraș mic/sat și suburban sunt net dezavantajate față de zonele urbane formate din orașe mari sau orașe medii. Figurile de mai jos ilustrează această situație pentru Matematică, atât pentru tot setul de date cât și pe toate domeniile -- imaginea este identică pentru toate aceste cazuri.
 
 ```{r}
 plot_provenienta  <- readRDS("Date/big.rds")
 plot_provenienta
 ```
-
 
 ```{r}
 #| fig-height: 15
@@ -197,7 +196,7 @@ plot_model(m1, show.values = TRUE, value.offset = .3, type = "std") + see::theme
 
 *Există o diferență semnificativă între scorul mediu obținut la matematică de elevii de clasa a IV-a respectiv a VIII-a? Dacă da, care este mai mic și cât de mic e față de media europeană? (daca exista date)*
 
-Nu putem răspunde decât parțial la această întrebare. România este prezentă în TIMSS 2019 doar cu un eșantion din populația elevilor de clasa a 8-a. Rezultatele pe acest set de date sunt prezentate în raportul de țară publicat anul trecut din care preluăm câteva idei în paragrafele de mai jos. Cu toate acestea, se pot face câteva inferențe din eșantionarea făcută în anul 2011, când, au fost prelevate ambele clase. Atunci, diferențele între cele doua clase erau mari, în defavoarea anilor superiori (clasa a 4-a, 482 de puncte; clasa a 8-a, 458 de puncte). Aceste date au însă deja peste 11 ani vechime ceea ce limitează încrederea noastră în a trage concluzii despre situația actuală.
+Nu putem răspunde decât parțial la această întrebare. România este prezentă în TIMSS 2019 doar cu un eșantion din populația elevilor de clasa a 8-a. Rezultatele pe acest set de date sunt prezentate în raportul de țară publicat anul trecut din care preluăm câteva idei în paragrafele de mai jos. Cu toate acestea, se pot face câteva inferențe din eșantionarea făcută în anul 2011, când, au fost prelevate ambele clase. Atunci diferențele între cele doua clase erau mari, în defavoarea anilor superiori (clasa a 4-a, 482 de puncte; clasa a 8-a, 458 de puncte). Aceste date au însă deja peste 11 ani vechime ceea ce limitează încrederea noastră în a trage concluzii despre situația actuală.
 
 [Raportul de țară pentru România](https://unibuc.ro/wp-content/uploads/2021/06/TIMSS-Raport-de-tara-2021-05-07.pdf) (p.8): În perioada 1995-2003, România a obținut scoruri la matematică în intervalul 472-475 puncte, urmând ca în anii 2007 și 2011 scorul să scadă la 461 (2007) și 458 (2011). În 2019, România a înregistrat o ușoară creștere ajungând la 479 puncte, fiind plasată în continuare sub media internațională TIMSS (500).
 
@@ -208,8 +207,3 @@ Scorul mediu obținut de elevii români la matematică (479) este foarte aproape
 ## Literație
 
 *In general ne preocupă și dacă problemele de literație sunt un factor explicativ important pentru nivelurile scăzute de numerație (dacă există date sau acces la date care să urmărească ambele domenii, gen PISA)*
-
-```{r}
-
-
-```
